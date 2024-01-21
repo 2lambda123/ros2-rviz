@@ -2,6 +2,71 @@
 Changelog for package rviz_visual_testing_framework
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+12.3.2 (2023-04-11)
+-------------------
+
+12.3.1 (2023-03-01)
+-------------------
+
+12.3.0 (2023-02-14)
+-------------------
+* Update rviz to C++17. (`#939 <https://github.com/ros2/rviz/issues/939>`_)
+* [rolling] Update maintainers - 2022-11-07 (`#923 <https://github.com/ros2/rviz/issues/923>`_)
+* Contributors: Audrow Nash, Chris Lalancette
+
+12.2.0 (2022-11-07)
+-------------------
+
+12.1.0 (2022-11-02)
+-------------------
+
+12.0.0 (2022-09-13)
+-------------------
+* Ogre 1.12.10 upgrade (`#878 <https://github.com/ros2/rviz/issues/878>`_)
+* Contributors: Kenji Brameld
+
+11.3.0 (2022-04-26)
+-------------------
+
+11.2.0 (2022-04-08)
+-------------------
+
+11.1.1 (2022-03-30)
+-------------------
+
+11.1.0 (2022-03-24)
+-------------------
+
+11.0.0 (2022-03-01)
+-------------------
+
+10.0.0 (2022-02-16)
+-------------------
+* Install headers to include/${PROJECT_NAME} (`#829 <https://github.com/ros2/rviz/issues/829>`_)
+* Contributors: Shane Loretz
+
+9.1.1 (2022-01-25)
+------------------
+
+9.1.0 (2022-01-13)
+------------------
+
+9.0.1 (2021-12-17)
+------------------
+* Fixes for uncrustify 0.72 (`#807 <https://github.com/ros2/rviz/issues/807>`_)
+* Contributors: Chris Lalancette
+
+9.0.0 (2021-11-18)
+------------------
+
+8.7.0 (2021-08-11)
+------------------
+
+8.6.0 (2021-05-13)
+------------------
+* Update includes after rcutils/get_env.h deprecation (`#677 <https://github.com/ros2/rviz/issues/677>`_)
+* Contributors: Christophe Bedard
+
 8.5.0 (2021-04-06)
 ------------------
 

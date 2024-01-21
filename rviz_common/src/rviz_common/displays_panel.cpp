@@ -29,20 +29,21 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "./displays_panel.hpp"
+#include "displays_panel.hpp"
 
 #include <string>
 
 #include <QApplication>  // NOLINT: cpplint is unable to handle the include order here
 #include <QHBoxLayout>  // NOLINT: cpplint is unable to handle the include order here
 #include <QInputDialog>  // NOLINT: cpplint is unable to handle the include order here
+#include <QProgressDialog> // NOLINT: cpplint is unable to handle the include order here
 #include <QPushButton>  // NOLINT: cpplint is unable to handle the include order here
 #include <QTimer>  // NOLINT: cpplint is unable to handle the include order here
 #include <QVBoxLayout>  // NOLINT: cpplint is unable to handle the include order here
 
-#include "./display_factory.hpp"
+#include "display_factory.hpp"
 #include "rviz_common/display.hpp"
-#include "./add_display_dialog.hpp"
+#include "add_display_dialog.hpp"
 #include "rviz_common/properties/property.hpp"
 #include "rviz_common/properties/property_tree_widget.hpp"
 #include "rviz_common/properties/property_tree_with_help.hpp"
@@ -119,7 +120,7 @@ void DisplaysPanel::onNewDisplay()
   QStringList empty;
 
   QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-  AddDisplayDialog * dialog = new AddDisplayDialog(
+  AddDisplayDialog dialog(
     vis_manager_->getDisplayFactory(),
     empty,
     empty,
@@ -130,16 +131,13 @@ void DisplaysPanel::onNewDisplay()
     &datatype);
   QApplication::restoreOverrideCursor();
 
-  vis_manager_->stopUpdate();
-  if (dialog->exec() == QDialog::Accepted) {
+  if (dialog.exec() == QDialog::Accepted) {
     Display * disp = vis_manager_->createDisplay(lookup_name, display_name, true);
     if (!topic.isEmpty() && !datatype.isEmpty()) {
       disp->setTopic(topic, datatype);
     }
   }
-  vis_manager_->startUpdate();
   activateWindow();  // Force keyboard focus back on main window.
-  delete dialog;
 }
 
 void DisplaysPanel::onDuplicateDisplay()
@@ -147,7 +145,13 @@ void DisplaysPanel::onDuplicateDisplay()
   QList<Display *> displays_to_duplicate = property_grid_->getSelectedObjects<Display>();
 
   QList<Display *> duplicated_displays;
+  QProgressDialog progress_dlg("Duplicating displays...", "Cancel", 0, displays_to_duplicate.size(),
+    this);
+  progress_dlg.setWindowModality(Qt::WindowModal);
+  progress_dlg.show();
 
+  // duplicate all selected displays
+  int i = 0;
   for (const auto & display_to_duplicate : displays_to_duplicate) {
     // initialize display
     QString lookup_name = display_to_duplicate->getClassId();
@@ -158,6 +162,12 @@ void DisplaysPanel::onDuplicateDisplay()
     display_to_duplicate->save(config);
     disp->load(config);
     duplicated_displays.push_back(disp);
+    progress_dlg.setValue(i + 1);
+    i++;
+    // push cancel to stop duplicate
+    if (progress_dlg.wasCanceled()) {
+      break;
+    }
   }
   // make sure the newly duplicated displays are selected.
   if (!duplicated_displays.isEmpty()) {
@@ -166,7 +176,6 @@ void DisplaysPanel::onDuplicateDisplay()
     QItemSelection selection(first, last);
     property_grid_->selectionModel()->select(selection, QItemSelectionModel::ClearAndSelect);
   }
-  vis_manager_->startUpdate();
   activateWindow();  // Force keyboard focus back on main window.
 }
 

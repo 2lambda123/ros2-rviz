@@ -2,6 +2,104 @@
 Changelog for package rviz_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+12.3.2 (2023-04-11)
+-------------------
+* Update Frame shortcut (`#958 <https://github.com/ros2/rviz/issues/958>`_)
+  * Update Frame shortcut
+* Contributors: David V. Lu!!
+
+12.3.1 (2023-03-01)
+-------------------
+
+12.3.0 (2023-02-14)
+-------------------
+* Update rviz to C++17. (`#939 <https://github.com/ros2/rviz/issues/939>`_)
+* [rolling] Update maintainers - 2022-11-07 (`#923 <https://github.com/ros2/rviz/issues/923>`_)
+* Contributors: Audrow Nash, Chris Lalancette
+
+12.2.0 (2022-11-07)
+-------------------
+
+12.1.0 (2022-11-02)
+-------------------
+* Remove YAML_CPP_DLL define (`#831 <https://github.com/ros2/rviz/issues/831>`_)
+* Contributors: Akash
+
+12.0.0 (2022-09-13)
+-------------------
+* Document getTransform() time behavior (`#893 <https://github.com/ros2/rviz/issues/893>`_)
+* Ogre 1.12.10 upgrade (`#878 <https://github.com/ros2/rviz/issues/878>`_)
+* Add RVIZ_COMMON_PUBLIC macro (`#865 <https://github.com/ros2/rviz/issues/865>`_)
+* Contributors: Kenji Brameld, Shane Loretz, juchajam
+
+11.3.0 (2022-04-26)
+-------------------
+* Add time jump handler (`#752 <https://github.com/ros2/rviz/issues/752>`_) (`#791 <https://github.com/ros2/rviz/issues/791>`_)
+* Make sure not to dereference a null Renderable pointer. (`#850 <https://github.com/ros2/rviz/issues/850>`_)
+* Contributors: Chris Lalancette, Marcel Zeilinger
+
+11.2.0 (2022-04-08)
+-------------------
+
+11.1.1 (2022-03-30)
+-------------------
+
+11.1.0 (2022-03-24)
+-------------------
+
+11.0.0 (2022-03-01)
+-------------------
+* Add implementation for cancel interface (`#809 <https://github.com/ros2/rviz/issues/809>`_)
+* Contributors: Chen Lihui
+
+10.0.0 (2022-02-16)
+-------------------
+* Install headers to include/${PROJECT_NAME} (`#829 <https://github.com/ros2/rviz/issues/829>`_)
+* Remove definition of PLUGINLIB_DISABLE_BOOST. (`#821 <https://github.com/ros2/rviz/issues/821>`_)
+* Contributors: Chris Lalancette, Shane Loretz
+
+9.1.1 (2022-01-25)
+------------------
+* Fix support for assimp 5.1.0 (`#817 <https://github.com/ros2/rviz/issues/817>`_)
+* Contributors: Silvio Traversaro
+
+9.1.0 (2022-01-13)
+------------------
+* Fix cpplint errors (`#818 <https://github.com/ros2/rviz/issues/818>`_)
+* Set message type for ros topic display (`#800 <https://github.com/ros2/rviz/issues/800>`_)
+* Contributors: Daisuke Nishimatsu, Jacob Perron
+
+9.0.1 (2021-12-17)
+------------------
+* Fixes for uncrustify 0.72 (`#807 <https://github.com/ros2/rviz/issues/807>`_)
+* Do not block visualization manager updates when opening the display panel dialog (`#795 <https://github.com/ros2/rviz/issues/795>`_)
+* Contributors: Chris Lalancette, Ivan Santiago Paunovic
+
+9.0.0 (2021-11-18)
+------------------
+* Switch to using Qt::MiddleButton for RViz. (`#802 <https://github.com/ros2/rviz/issues/802>`_)
+* Removed traces in renderPanel (`#777 <https://github.com/ros2/rviz/issues/777>`_)
+* move yaml_config_writer.hpp to public includes (`#764 <https://github.com/ros2/rviz/issues/764>`_)
+* Update displays_panel.cpp (`#745 <https://github.com/ros2/rviz/issues/745>`_)
+* Robot: Report mesh loading issues (`#744 <https://github.com/ros2/rviz/issues/744>`_)
+* Exposed tool_manager header file. (`#767 <https://github.com/ros2/rviz/issues/767>`_)
+* refactor: make const getter methods const (`#756 <https://github.com/ros2/rviz/issues/756>`_)
+* Efficiently handle 3-bytes pixel formats (`#743 <https://github.com/ros2/rviz/issues/743>`_)
+* Report sample lost events (`#686 <https://github.com/ros2/rviz/issues/686>`_)
+* Contributors: ANDOU Tetsuo, Alejandro Hernández Cordero, Chris Lalancette, Gonzo, Joseph Schornak, davidorchansky
+
+8.7.0 (2021-08-11)
+------------------
+* Update window close icon (`#734 <https://github.com/ros2/rviz/issues/734>`_)
+* Fix missing "X" icon in panel close button (`#731 <https://github.com/ros2/rviz/issues/731>`_)
+* Add rviz_rendering dependency to rviz_common (`#727 <https://github.com/ros2/rviz/issues/727>`_)
+* Remove the word "Alpha" from the splash screen. (`#696 <https://github.com/ros2/rviz/issues/696>`_)
+* Removed some memory leaks in rviz_rendering and rviz_rendering_tests (`#710 <https://github.com/ros2/rviz/issues/710>`_)
+* Contributors: Alejandro Hernández Cordero, Chris Lalancette, Rebecca Butler
+
+8.6.0 (2021-05-13)
+------------------
+
 8.5.0 (2021-04-06)
 ------------------
 * Add visualization_frame to the public API (`#660 <https://github.com/ros2/rviz/issues/660>`_)

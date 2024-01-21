@@ -47,17 +47,14 @@ using namespace ::testing;  // NOLINT
 class MeshLoaderTestFixture : public ::testing::Test
 {
 protected:
-  static void SetUpTestCase()
+  void SetUp()
   {
     testing_environment_ = std::make_shared<rviz_rendering_tests::OgreTestingEnvironment>();
     testing_environment_->setUpOgreTestEnvironment();
   }
 
-  static std::shared_ptr<rviz_rendering_tests::OgreTestingEnvironment> testing_environment_;
+  std::shared_ptr<rviz_rendering_tests::OgreTestingEnvironment> testing_environment_;
 };
-
-std::shared_ptr<rviz_rendering_tests::OgreTestingEnvironment>
-MeshLoaderTestFixture::testing_environment_ = nullptr;
 
 void assertVector3Equality(Ogre::Vector3 actual, Ogre::Vector3 expected)
 {
@@ -186,4 +183,17 @@ TEST_F(MeshLoaderTestFixture, assimp_loader_reads_size_correctly) {
   ASSERT_EQ(mesh_path, mesh->getName());
   ASSERT_FLOAT_EQ(expected_bounding_radius, mesh->getBoundingSphereRadius());
   assertBoundingBoxEquality(expected_bounding_box, mesh->getBounds());
+}
+
+TEST_F(MeshLoaderTestFixture, loading_solidworks_binary_stl) {
+  // In general, binary STL files should not start with "solid" as this hints ASCII STL files.
+  // Annoyingly, STL files exported from Solidworks don't follow this guideline and contain
+  // "solid" at the start of binary STL files.
+  // However, they don't finish with "endsolid" like ASCII STL files, so we can still detect
+  // them as binary STL files.
+  // This test checks that SOLIDWORKS binary STL files get loaded correctly and don't get treated
+  // as ASCII STL files.
+  std::string mesh_path = "package://rviz_rendering_tests/test_meshes/solidworks.stl";
+
+  ASSERT_TRUE(rviz_rendering::loadMeshFromResource(mesh_path));
 }

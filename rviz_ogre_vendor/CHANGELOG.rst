@@ -2,6 +2,77 @@
 Changelog for package rviz_ogre_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+12.3.2 (2023-04-11)
+-------------------
+* Fix build failures on macOS + Apple Silicon (`#944 <https://github.com/ros2/rviz/issues/944>`_)
+* Contributors: Yadu
+
+12.3.1 (2023-03-01)
+-------------------
+
+12.3.0 (2023-02-14)
+-------------------
+* [rolling] Update maintainers - 2022-11-07 (`#923 <https://github.com/ros2/rviz/issues/923>`_)
+* Contributors: Audrow Nash
+
+12.2.0 (2022-11-07)
+-------------------
+* Remove broken rviz_ogre_vendor::RenderSystem_GL target (`#920 <https://github.com/ros2/rviz/issues/920>`_)
+* Contributors: Shane Loretz
+
+12.1.0 (2022-11-02)
+-------------------
+
+12.0.0 (2022-09-13)
+-------------------
+* Fixes policy CMP0135 warning for CMake >= 3.24 (`#898 <https://github.com/ros2/rviz/issues/898>`_)
+* Ogre 1.12.10 upgrade (`#878 <https://github.com/ros2/rviz/issues/878>`_)
+* Make resource file paths relative (`#862 <https://github.com/ros2/rviz/issues/862>`_)
+* Use CMAKE_STAGING_PREFIX for staging OGRE installation (`#861 <https://github.com/ros2/rviz/issues/861>`_)
+* Contributors: Cristóbal Arroyo, Kenji Brameld, Scott K Logan
+
+11.3.0 (2022-04-26)
+-------------------
+
+11.2.0 (2022-04-08)
+-------------------
+
+11.1.1 (2022-03-30)
+-------------------
+* Fix interface link libraries in ogre vendor (`#761 <https://github.com/ros2/rviz/issues/761>`_)
+* Contributors: Laszlo Turanyi
+
+11.1.0 (2022-03-24)
+-------------------
+
+11.0.0 (2022-03-01)
+-------------------
+
+10.0.0 (2022-02-16)
+-------------------
+* Fix the build for Ubuntu Jammy arm64. (`#828 <https://github.com/ros2/rviz/issues/828>`_)
+* Contributors: Chris Lalancette
+
+9.1.1 (2022-01-25)
+------------------
+
+9.1.0 (2022-01-13)
+------------------
+
+9.0.1 (2021-12-17)
+------------------
+
+9.0.0 (2021-11-18)
+------------------
+
+8.7.0 (2021-08-11)
+------------------
+
+8.6.0 (2021-05-13)
+------------------
+* Strip RPATH from installed Ogre binaries (`#688 <https://github.com/ros2/rviz/issues/688>`_)
+* Contributors: Michel Hidalgo
+
 8.5.0 (2021-04-06)
 ------------------
 
